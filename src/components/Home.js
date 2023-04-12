@@ -1,14 +1,19 @@
-import { ButtonCta } from '../components/ButtonCta'
+import { ButtonCta } from '../components/ButtonCta';
+import { useContext } from 'react';
+import { DataContext } from '../contexts/DataContext';
+
 
 export const Home = () => {
+
+    const data = useContext(DataContext);
 
     return (
         <section id="home-component">
             <div className="home-info-wrapper">
                 <div className="info-col">
-                    <h2 className="home-heading">Visuals Engineered with Precision</h2>
+                    <h2 className="home-heading">{data.hero.title}</h2>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque, amet sit dui quis amet gravida felis nibh. Netus erat id et placerat massa.</p>
+                    <p>{data.hero.description}</p>
                     <ButtonCta />
                 </div>
                 <div className="home-img-wrapper">

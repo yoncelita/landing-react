@@ -75,6 +75,10 @@ body {
   color: #000000;
 }
 
+.info-col a {
+  text-decoration: none;
+}
+
 @media (max-width: 480px) {
   #home-component {
     flex-direction: row;
