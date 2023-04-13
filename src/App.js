@@ -1,6 +1,7 @@
 import './App.css';
 import { Home } from './components/Home';
 import { Services } from './components/Services';
+import { AgencyServices } from './components/AgencyServices'
 
 import data from './data.json';
 
@@ -15,6 +16,7 @@ function App() {
         <Home />
         <Services />
         <Work />
+        <AgencyServices />
       </body>
     </DataContext.Provider>
   );

@@ -17,7 +17,7 @@ export const Home = () => {
                     <ButtonCta url={data.hero.buttonUrl} label={data.hero.buttonLabel} />
                 </div>
                 <div className="home-img-wrapper">
-                    <img src={data.hero.image} alt="home-image" />
+                    <img src={data.hero.image} alt="home" />
                 </div>
             </div>
         </section>

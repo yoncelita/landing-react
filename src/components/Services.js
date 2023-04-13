@@ -9,7 +9,7 @@ export const Services = () => {
     return (
         <section id='services-component'>
             <div className='services-wrapper'>
-                <div className='services-header'>
+                <div className='section-header'>
                     <h3>{data.services.title}</h3>
                     <p>{data.services.description}</p>
                 </div>
