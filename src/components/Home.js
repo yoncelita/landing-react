@@ -14,9 +14,10 @@ export const Home = () => {
                     <h2 className="home-heading">{data.hero.title}</h2>
 
                     <p>{data.hero.description}</p>
-                    <ButtonCta />
+                    <ButtonCta url={data.hero.buttonUrl} label={data.hero.buttonLabel} />
                 </div>
                 <div className="home-img-wrapper">
+                    <img src={data.hero.image} alt="home-image" />
                 </div>
             </div>
         </section>
