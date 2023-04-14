@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-body {
+.main {
   background: #FFFFFF;
   font-family: 'Poppins', sans-serif;
 }
@@ -388,6 +388,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 
@@ -475,6 +476,19 @@ body {
   height: 32px;
 }
 
+.accordion-img-wrapper {
+  position: absolute;
+  right: 0;
+  top: -19px;
+}
+
+.services-parag {
+  width: 443px;
+  height: 416px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 @media (max-width: 480px) {
 
@@ -503,5 +517,9 @@ body {
     height: auto;
     padding: 25px;
     overflow-y: hidden;
+  }
+
+  .accordion-img-wrapper {
+    position: static;
   }
 }

@@ -1,14 +1,17 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { DataContext } from '../contexts/DataContext';
 
 
-export const AgencyServices = () => {
+export const AgencyServices = ({ items }) => {
 
     const data = useContext(DataContext);
-    const [firstItem] = data.agency_services.items;
-    const [, secondItem] = data.agency_services.items;
-    const [, , thirdItem] = data.agency_services.items;
-    const [, , , fourthItem] = data.agency_services.items;
+    const itemsServices = data.agency_services.items;
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const handleAccordionClick = (index) => {
+        setActiveIndex(activeIndex === index ? null : index);
+    };
+
 
     return (
         <section id='agencyServices-component'>
@@ -17,65 +20,41 @@ export const AgencyServices = () => {
                     <h3>{data.agency_services.title}</h3>
                 </div>
                 <div className='main-content'>
-
                     <div className='half-content'>
-
-                        <div className="work-text-parag">
+                        <div className="services-parag">
                             <section className="all-accordion-container">
                                 <section className="accordion-container">
-
-                                    <div className="accordion-content">
-                                        <input id="accordion-1" name="accordion-1" type="radio" checked />
-                                        <label for="accordion-1">{firstItem.title}<img className="arrow-icon" src="../images/icons/chromeye_assignment_arrowdown_v1.svg" alt="arrow" /></label>
-                                        <section className="accordion">
-                                            <p>
-                                                {firstItem.description}
-                                            </p>
-                                        </section>
-                                    </div>
-
-                                    <div className="accordion-content">
-                                        <input id="accordion-2" name="accordion-1" type="radio" checked />
-                                        <label for="accordion-2">{secondItem.title}<img className="arrow-icon" src="../images/icons/chromeye_assignment_arrowdown_v1.svg" alt="arrow" /></label>
-                                        <section className="accordion">
-                                            <p>
-                                                {secondItem.description}
-                                            </p>
-                                        </section>
-                                    </div>
-
-                                    <div className="accordion-content">
-                                        <input id="accordion-3" name="accordion-1" type="radio" checked />
-                                        <label for="accordion-3">{thirdItem.title}<img className="arrow-icon" src="../images/icons/chromeye_assignment_arrowdown_v1.svg" alt="arrow" /></label>
-                                        <section className="accordion">
-                                            <p>
-                                                {thirdItem.description}
-                                            </p>
-                                        </section>
-                                    </div>
-
-                                    <div className="accordion-content">
-                                        <input id="accordion-4" name="accordion-1" type="radio" checked />
-                                        <label for="accordion-4">{fourthItem.title}<img className="arrow-icon" src="../images/icons/chromeye_assignment_arrowdown_v1.svg" alt="arrow" /></label>
-                                        <section className="accordion">
-                                            <p>
-                                                {fourthItem.description}
-                                            </p>
-                                        </section>
-                                    </div>
-
+                                    {itemsServices.map((item, index) => (
+                                        <div className="accordion-content" key={index}>
+                                            <input
+                                                id={`accordion-${index}`}
+                                                name="accordion-1"
+                                                type="radio"
+                                                checked={activeIndex === index}
+                                                onChange={() => handleAccordionClick(index)}
+                                            />
+                                            <label htmlFor={`accordion-${index}`}>
+                                                {item.title}
+                                                <img
+                                                    className="arrow-icon"
+                                                    src="../images/icons/chromeye_assignment_arrowdown_v1.svg"
+                                                    alt="arrow"
+                                                />
+                                            </label>
+                                            <section className="accordion">
+                                                <p>{item.description}</p>
+                                            </section>
+                                            {activeIndex === index && (
+                                                <div className="accordion-img-wrapper img-wrapper">
+                                                    <img src={item.image} alt="aside-image" />
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
                                 </section>
                             </section>
                         </div>
-
-                        <div className="img-wrapper">
-                            <img src={firstItem.image} alt="content" />
-                        </div>
-
                     </div>
-
-
-
 
                 </div>
             </div>

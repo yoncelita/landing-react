@@ -15,7 +15,7 @@ export const Services = () => {
                 </div>
                 <div className='services-content'>
                     {data.services.items.map(item => (
-                        <div className='services-box'>
+                        <div className='services-box' key={item.title}>
                             <div className='services-box-header'>
                                 <img src={item.icon} alt='benefit' />
                                 <h3>{item.title}</h3>

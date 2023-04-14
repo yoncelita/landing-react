@@ -12,12 +12,12 @@ function App() {
 
   return (
     <DataContext.Provider value={data}>
-      <body>
+      <div className='main'>
         <Home />
         <Services />
         <Work />
         <AgencyServices />
-      </body>
+      </div>
     </DataContext.Provider>
   );
 }
